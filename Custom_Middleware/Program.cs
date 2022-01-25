@@ -1,3 +1,5 @@
+using Custom_Middleware.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,7 +20,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
-// Add the middleware
+app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
 app.MapControllers();
 
